@@ -141,10 +141,11 @@ def train(config):
 
     custom_ckpt = CustomCheckpointIO()
     trainer = pl.Trainer(
-        num_nodes=config.get("num_nodes", 1),
-        devices=torch.cuda.device_count(),
-        strategy="ddp",
-        accelerator="gpu",
+        #num_nodes=config.get("num_nodes", 1),
+        #devices=torch.cuda.device_count(),
+        #strategy="ddp",
+        #accelerator="gpu",
+        accelerator="cpu",
         plugins=custom_ckpt,
         max_epochs=config.max_epochs,
         max_steps=config.max_steps,
